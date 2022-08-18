@@ -1,0 +1,37 @@
+{
+  "author": "Dawid Wijata",
+  "classifications": [
+    "Web",
+    "ASP.NET",
+    "Microservice"
+  ],
+  "name": "Base Microservice Template",
+  "description": "A solution for creating a base microservice with basic set of features",
+  "identity": "Midas.Templates.BaseMicroservice",
+  "groupIdentity": "Midas.Services",
+  "shortName": "base-microservice",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "BaseMicroservice",
+  "sources": [
+    {
+      "source": "./",
+      "target": "./",
+      "exclude": [
+        "README.md",
+        "**/[Bb]in/**",
+        "**/[Oo]bj/**",
+        ".template.config/**/*",
+        ".vs/**/*",
+        "**/*.filelist",
+        "**/*.user",
+        "**/*.lock.json",
+        "**/.git/**",
+        "*.nuspec"
+      ]
+    }
+  ],
+  "preferNameDirectory": true
+}
