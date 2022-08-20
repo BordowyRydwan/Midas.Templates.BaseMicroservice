@@ -7,6 +7,7 @@ using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using NLog;
 using NLog.Web;
+using WebAPI.Extensions;
 
 namespace WebAPI;
 
@@ -53,9 +54,9 @@ public class Startup
 
         _builder.Services.AddDbContext<MessageDbContext>(options =>
         {
-            options.UseSqlServer(connString);
+            options.UseSqlServer(connString).EnableSensitiveDataLogging();
         });
-
+        
         _logger.Debug("SQL connection was successfully added");
 
         return this;
@@ -107,10 +108,13 @@ public class Startup
             app.UseSwagger();
             app.UseSwaggerUI();
         }
-
+        
+        app.MigrateDatabase();
         app.UseHttpsRedirection();
         app.UseCors("Open");
         app.MapControllers();
         app.Run();
+        
+        _logger.Debug("Application has been successfully ran");
     }
 }

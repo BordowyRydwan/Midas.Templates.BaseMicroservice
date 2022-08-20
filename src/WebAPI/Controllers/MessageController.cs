@@ -6,7 +6,7 @@ using Swashbuckle.AspNetCore.Annotations;
 namespace WebAPI.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class MessageController : ControllerBase
 {
     private readonly IMessageService _messageService;

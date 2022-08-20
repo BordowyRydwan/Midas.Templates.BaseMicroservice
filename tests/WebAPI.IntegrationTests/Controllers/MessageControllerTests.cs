@@ -19,7 +19,7 @@ public class MessageControllerTests
     
     public MessageControllerTests()
     {
-        var configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
+        var configuration = new ConfigurationBuilder().AddJsonFile("appsettings.Development.json").Build();
         var connectionString = configuration.GetConnectionString("DefaultConnection");
         
         var dbOptions = new DbContextOptionsBuilder<MessageDbContext>().UseSqlServer(connectionString).Options;
