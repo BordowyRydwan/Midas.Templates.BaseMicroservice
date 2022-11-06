@@ -42,6 +42,22 @@ dotnet ef migrations add "SampleMigration" --project src\Infrastructure --startu
 Depending on the path where you're at, the command will look different.
 Migrations are applied automatically just right after running up the solution, so you will not have to update it with `Update-Database`.
 
+## In case of certification problems on Linux dev configs
+1. Generate a custom self-signed certificate using [these instructions](https://stackoverflow.com/a/59702094/16231079)
+2. To `appsettings.Development.json` add these lines:
+```
+"Kestrel": {
+    "Certificates": {
+        "Default": {
+            "Path": "<your full path>/localhost.pfx",
+            "Password": ""
+        }
+    }
+}
+```
+
+All these instuctions are not needed in Windows where HTTPS configs are being set by default and for production configs because they are having another certificates that are not self-signed.
+
 ## Creating new project with template
 
 ### By command line
